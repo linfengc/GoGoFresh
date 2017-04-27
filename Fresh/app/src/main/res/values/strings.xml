@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Fresh</string>
+    <string name="addToCarLabel">Add To Cart</string>
+    <string name="quantityLabel">Quantity: </string>
+    <string name="unitCostLabel">Unit Price: </string>
+    <string name="totalLabel">Total: $</string>
+    <string name="userNameLabel">User Name: </string>
+    <string name="passWord">Password: </string>
+    <string name="loginLabel">Log in</string>
+    <string name="creatAccountLabel">Creat an account</string>
+</resources>
