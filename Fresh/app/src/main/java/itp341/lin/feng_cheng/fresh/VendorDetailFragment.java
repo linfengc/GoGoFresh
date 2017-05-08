@@ -19,6 +19,8 @@ import itp341.lin.feng_cheng.fresh.Model.Client.Vendor;
 import itp341.lin.feng_cheng.fresh.Model.Product;
 import itp341.lin.feng_cheng.fresh.Model.VendorSingleton;
 
+import static android.media.CamcorderProfile.get;
+
 /**
  * Created by fredlin on 4/2/17.
  */
@@ -74,9 +76,47 @@ public class VendorDetailFragment extends Fragment {
         productListAdapter = new ProductListAdapter(products, this);
 
         list.setAdapter(productListAdapter);
+
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Product pro = products.get(position);
+                Intent i = new Intent(getActivity(), ProductPurchaseActivity.class);
+                System.out.println("pasing this product to purchaseAct: " + pro);
+                i.putExtra(ProductPurchaseActivity.PRODUCT_TAG, pro);
+                i.putExtra("Key", vendorName);
+                i.putExtra(ProductPurchaseActivity.IMG_TAG, frontEndTestID(pro.getName()));
+                startActivityForResult(i, 0);
+            }
+        });
+
+
         return v;
 
     }
+
+    public int frontEndTestID(String s){
+        if(s.equalsIgnoreCase("Strawberry")){
+            return R.drawable.p1;
+        }
+        else if(s.equalsIgnoreCase("bread")){
+            return R.drawable.p2;
+        }
+        else if(s.equalsIgnoreCase("breakfast burrito")){
+            return R.drawable.p3;
+        }
+        else if(s.equalsIgnoreCase("Banana")) {
+            return R.drawable.p4;
+        }
+        else if(s.equalsIgnoreCase("Apple")){
+            return  R.drawable.p6;
+        }
+        else{
+            return R.drawable.p5;
+        }
+    }
+
 
 
 
@@ -109,45 +149,15 @@ public class VendorDetailFragment extends Fragment {
             img.setImageResource(frontEndTestID(p.getName()));
 
 
-
-            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent i = new Intent(getActivity(), ProductPurchaseActivity.class);
-                    System.out.println("pasing this product to purchaseAct: " + p);
-                    i.putExtra(ProductPurchaseActivity.PRODUCT_TAG, p);
-                    i.putExtra("Key", vendorName);
-                    i.putExtra(ProductPurchaseActivity.IMG_TAG, frontEndTestID(p.getName()));
-                    startActivityForResult(i, 0);
-                }
-            });
-
-
             return convertView;
 
         }
 
 
-        public int frontEndTestID(String s){
-            if(s.equalsIgnoreCase("Strawberry")){
-                return R.drawable.p1;
-            }
-            else if(s.equalsIgnoreCase("bread")){
-                return R.drawable.p2;
-            }
-            else if(s.equalsIgnoreCase("breakfast burrito")){
-                return R.drawable.p3;
-            }
-            else if(s.equalsIgnoreCase("Banana")) {
-                return R.drawable.p4;
-            }
-            else if(s.equalsIgnoreCase("Apple")){
-                return  R.drawable.p6;
-            }
-            else{
-                return R.drawable.p5;
-            }
-        }
+
+
+
+
 
 
     }
