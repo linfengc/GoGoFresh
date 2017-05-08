@@ -1,5 +1,6 @@
 package itp341.lin.feng_cheng.fresh;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -88,6 +89,9 @@ public class NewVendorFragment extends Fragment {
         bioEdit.setText("");  bioEdit.setHint("Enter a brief bio");
         marketSpinner = (Spinner) v.findViewById(R.id.locationSpinner);
         categorySpinner = (Spinner) v.findViewById(R.id.categorySpinner);
+        Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/MavenPro-Bold.ttf");
+        bioEdit.setTypeface(font);
+
 
     }
 

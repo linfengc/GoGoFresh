@@ -33,6 +33,7 @@
         android:gravity="center"
         android:textColor="@color/darkred"
         android:text="Enter your address"
+        android:id="@+id/newCustomerLabel"
         />
 
 

@@ -12,6 +12,7 @@
         android:text="Create your profile"
         android:textSize="@dimen/medTextSize"
         android:layout_marginBottom="10dp"
+        android:id="@+id/newUserLabel1"
         android:gravity="center"
         android:textColor="#000"/>
 
@@ -88,6 +89,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Create User"
+        android:background="@color/Button"
         android:id="@+id/createNewUserBut"/>
 
 

@@ -24,11 +24,29 @@ public class MapViewFragment extends Fragment {
     MapView mMapView;
     private GoogleMap googleMap;
 
+
+
+    public MapViewFragment() {
+        // Required empty public constructor
+    }
+
+
+    public static MapViewFragment newInstance(double longi ,double lat) {
+        MapViewFragment fragment = new MapViewFragment();
+        Bundle args = new Bundle();
+        args.putDouble("Key1", longi );
+        args.putDouble("Key2",lat);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_maps, container, false);
-
-        mMapView = (MapView) rootView.findViewById(R.id.map);
+        View rootView = inflater.inflate(R.layout.order_list, container, false);
+        Bundle b = getArguments();
+        final double longi = b.getDouble("Key1");
+        final double lat = b.getDouble("Key2");
+        mMapView = (MapView) rootView.findViewById(R.id.pinPointMap);
         mMapView.onCreate(savedInstanceState);
 
         mMapView.onResume(); // needed to get the map to display immediately
@@ -48,7 +66,8 @@ public class MapViewFragment extends Fragment {
 //                googleMap.setMyLocationEnabled(true);
 
                 // For dropping a marker at a point on the Map
-                LatLng sydney = new LatLng(-34, 151);
+                System.out.println("load logi and lat: " + longi + " " + lat);
+                LatLng sydney = new LatLng(longi, lat);
                 googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker Title").snippet("Marker Description"));
 
                 // For zooming automatically to the location of the marker

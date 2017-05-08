@@ -2,6 +2,7 @@ package itp341.lin.feng_cheng.fresh;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -63,12 +64,17 @@ public class CreateUserActivity extends AppCompatActivity{
     }
 
     private void initializeComponents(){
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/MavenPro-Bold.ttf");
         userTypeGroup = (RadioGroup) findViewById(R.id.userTypeRadio);
         userTypeGroup.check(0);
         newUserName  = (EditText) findViewById(R.id.createName);
         newUserName.setText("");
         newUserName.setHint("Please Enter Your Name");
         createButton = (Button) findViewById(R.id.createNewUserBut);
+
+        TextView t1 = (TextView) findViewById(R.id.newUserLabel1) ;
+        t1.setTypeface(font);
+        createButton.setTypeface(font);
 
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override

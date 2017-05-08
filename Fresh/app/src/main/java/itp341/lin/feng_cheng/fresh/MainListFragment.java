@@ -1,6 +1,7 @@
 package itp341.lin.feng_cheng.fresh;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
@@ -27,6 +28,9 @@ import itp341.lin.feng_cheng.fresh.Model.Client.Vendor;
 import itp341.lin.feng_cheng.fresh.Model.Product;
 import itp341.lin.feng_cheng.fresh.Model.VendorSingleton;
 
+import static android.R.attr.fontFamily;
+import static android.R.attr.vendor;
+
 /**
  * Created by fredlin on 4/2/17.
  */
@@ -37,6 +41,7 @@ public class MainListFragment extends Fragment {
     //get references
     private TextView text;
     private ListView list;
+    Typeface font;
 
     private ArrayList<Vendor> vendors;
     private ArrayList<Vendor> listFromFirebase;
@@ -82,7 +87,7 @@ public class MainListFragment extends Fragment {
 
 
 
-
+        font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/AmaticSC-Bold.ttf");
         vendors = VendorSingleton.get(getActivity()).getVendorsList();
         vendorAdapter = new VendorListAdapter(vendors, this);
         list.setAdapter(vendorAdapter);
@@ -148,7 +153,9 @@ public class MainListFragment extends Fragment {
             vendorImg.setImageResource(frontEndTestID(position));
             TextView bio = (TextView) convertView.findViewById(R.id.vendorListBio);
             bio.setText(v.getBio());
-
+            vendorName.setTypeface(font);
+            location.setTypeface(font);
+            location.setTypeface(font);
             //set Listener
             list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -165,6 +172,7 @@ public class MainListFragment extends Fragment {
         }
 
         public int frontEndTestID(int position){
+            position = position%5;
             if(position==0){
                 return R.drawable.v1;
             }

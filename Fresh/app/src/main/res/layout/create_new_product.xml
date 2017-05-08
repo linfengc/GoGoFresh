@@ -21,7 +21,8 @@
                 android:layout_marginEnd="4dp"
                 android:text="Name: "
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/newProduct1"/>
 
             <EditText
                 android:layout_marginStart="4dp"
@@ -41,7 +42,8 @@
                 android:layout_marginEnd="4dp"
                 android:text="Unit Price: "
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/newProduct2"/>
 
             <EditText
                 android:layout_marginStart="4dp"
@@ -63,7 +65,8 @@
                 android:layout_marginBottom="4dp"
                 android:text="Quantity: "
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/newProduct3"/>
 
             <EditText
                 android:layout_marginTop="4dp"
@@ -91,7 +94,8 @@
                 android:layout_marginBottom="4dp"
                 android:text="Description: "
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/newProduct4"/>
 
             <EditText
                 android:layout_marginTop="4dp"
@@ -111,7 +115,8 @@
             android:text="Save"
             android:id="@+id/noteWriteSave"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:background="@color/Button"/>
 
     </LinearLayout>
 

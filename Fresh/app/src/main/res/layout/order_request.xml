@@ -25,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Strawberries"
+
             android:id="@+id/orderRequestProductName"
             android:textColor="#000"
             android:textStyle="bold"
@@ -44,6 +45,7 @@
             android:textStyle="bold"
             android:textColor="#000"
             android:textSize="@dimen/medTextSize"
+            android:id="@+id/label3"
             android:text="@string/unitCostLabel"/>
 
         <TextView
@@ -72,6 +74,7 @@
                 android:textStyle="bold"
                 android:textColor="#000"
                 android:textSize="@dimen/medTextSize"
+                android:id="@+id/label2"
                 android:text="@string/quantityLabel"/>
 
             <TextView
@@ -113,7 +116,8 @@
             android:textStyle="bold"
             android:textColor="#000"
             android:textSize="@dimen/medTextSize"
-            android:text="@string/totalLabel"/>
+            android:text="@string/totalLabel"
+            android:id="@+id/label1"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -134,6 +138,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/orderRequestButton"
+        android:background="@color/Button"
         android:text="@string/addToCarLabel"/>
 
 </LinearLayout>

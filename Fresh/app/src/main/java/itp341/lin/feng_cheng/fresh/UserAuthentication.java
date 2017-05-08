@@ -2,6 +2,7 @@ package itp341.lin.feng_cheng.fresh;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
@@ -50,6 +51,7 @@ public class UserAuthentication extends Fragment {
     private boolean loggedIn = false;
     private boolean newUser = false;
 
+
     //Auth variables
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -90,6 +92,12 @@ public class UserAuthentication extends Fragment {
         warningLabel = (TextView) v.findViewById(R.id.warningLabel);
         userName.setHint("Email");
         userPassword.setHint("Password");
+        Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/MavenPro-Bold.ttf");
+        loginButton.setTypeface(font);
+        createAccount.setTypeface(font);
+        warningLabel.setTypeface(font);
+        userName.setTypeface(font);
+        userPassword.setTypeface(font);
     }
 
 
@@ -290,6 +298,7 @@ public class UserAuthentication extends Fragment {
                 loggedIn = true;
                 if(idx==0){
                     Toast.makeText(getActivity(), "A new Vendor has been created", Toast.LENGTH_SHORT).show();
+                    login();
                 }
                 else {//load map if it's a customer
                     Toast.makeText(getActivity(), "A new Customer has been created", Toast.LENGTH_SHORT).show();

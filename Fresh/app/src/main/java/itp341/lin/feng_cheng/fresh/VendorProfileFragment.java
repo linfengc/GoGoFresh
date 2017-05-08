@@ -172,8 +172,13 @@ public class VendorProfileFragment extends Fragment {
             productInfo.setText("Unit Price: "+ model.getPrice()+ "\n" +
                     model.getProductInfo());
 
+
+
+
             Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/AmaticSC-Bold.ttf");
             productName.setTypeface(font);
+            productNum.setTypeface(font);
+            productInfo.setTypeface(font);
 
 
 

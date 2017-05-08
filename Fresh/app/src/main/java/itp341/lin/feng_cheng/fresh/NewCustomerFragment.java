@@ -1,5 +1,6 @@
 package itp341.lin.feng_cheng.fresh;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -85,8 +87,15 @@ public class NewCustomerFragment extends Fragment {
         cardEdit = (EditText) v.findViewById(R.id.customerCardNum);
         addressEdit = (EditText) v.findViewById(R.id.createCustomerAddress);
         cardTypeSpinner = (Spinner) v.findViewById(R.id.cardTypeSpinner);
+        Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/MavenPro-Bold.ttf");
         cardEdit.setText(""); cardEdit.setHint("Enter your card numer");
         addressEdit.setText(""); addressEdit.setHint("Enter your address");
+        cardEdit.setTypeface(font);
+        addressEdit.setTypeface(font);
+        TextView  lable = (TextView) v.findViewById(R.id.newCustomerLabel);
+        lable.setTypeface(font);
+
+
 
     }
 

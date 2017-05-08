@@ -61,13 +61,25 @@ public class CreateNewProductAcitivity extends AppCompatActivity{
         saveButt = (Button) findViewById(R.id.noteWriteSave);
 
 
-        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/AmaticSC-Bold.ttf");
+
+
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/MavenPro-Bold.ttf");
 
         productQuan.setTypeface(font);
         productName.setTypeface(font);
         productDes.setTypeface(font);
         productUnitPrice.setTypeface(font);
         saveButt.setTypeface(font);
+
+        TextView t1= (TextView)findViewById(R.id.newProduct1) ;
+        TextView t2= (TextView)findViewById(R.id.newProduct2) ;
+        TextView t3= (TextView)findViewById(R.id.newProduct3) ;
+        TextView t4= (TextView)findViewById(R.id.newProduct4) ;
+
+        t1.setTypeface(font);
+        t2.setTypeface(font);
+        t3.setTypeface(font);
+        t4.setTypeface(font);
 
         //todo get database
         database = FirebaseDatabase.getInstance();
@@ -90,8 +102,8 @@ public class CreateNewProductAcitivity extends AppCompatActivity{
                             products = new ArrayList<Product>();
                         }
                        // Product p1 = new Product(3 , new ArrayList<String>(), 100, "Strawberry");
-                        Product p = new Product(Integer.valueOf(productQuan.getText().toString()),
-                                new ArrayList<String>(), Integer.valueOf(productUnitPrice.getText().toString()),
+                        Product p = new Product(Integer.valueOf(productUnitPrice.getText().toString()),
+                                new ArrayList<String>(), Integer.valueOf(productQuan.getText().toString()),
                                     productName.getText().toString() , productDes.getText().toString());
                         products.add(p);
 

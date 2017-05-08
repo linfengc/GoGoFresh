@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Fresh</string>
+    <string name="app_name">GoGoFresh</string>
     <string name="addToCarLabel">Add To Cart</string>
     <string name="quantityLabel">Quantity: </string>
     <string name="unitCostLabel">Unit Price: </string>

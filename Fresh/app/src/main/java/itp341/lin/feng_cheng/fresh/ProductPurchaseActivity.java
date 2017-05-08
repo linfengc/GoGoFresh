@@ -1,6 +1,7 @@
 package itp341.lin.feng_cheng.fresh;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -123,6 +124,21 @@ public class ProductPurchaseActivity extends AppCompatActivity {
         totalCostLabel = (TextView) findViewById(R.id.orderRequestTotalCost) ;
         productNameLabel = (TextView) findViewById(R.id.orderRequestProductName);
         addCartButton = (Button) findViewById(R.id.orderRequestButton);
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/AmaticSC-Bold.ttf");
+
+
+        TextView t1 = (TextView) findViewById(R.id.label1);
+        TextView t2 = (TextView) findViewById(R.id.label2);
+        TextView t3 = (TextView) findViewById(R.id.label3);
+
+        t1.setTypeface(font);
+        t2.setTypeface(font);
+        t3.setTypeface(font);
+        priceLabel.setTypeface(font);
+        quantityLabel.setTypeface(font);
+        totalCostLabel.setTypeface(font);
+        productNameLabel.setTypeface(font);
+        addCartButton.setTypeface(font);
 
         addCartButton.setOnClickListener(new View.OnClickListener() {
             @Override

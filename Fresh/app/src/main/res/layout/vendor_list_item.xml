@@ -13,11 +13,14 @@
         app:cardCornerRadius="5dp"
         app:cardUseCompatPadding="true"
         app:cardPreventCornerOverlap="true"
+
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/Button"
+            >
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
@@ -39,8 +42,9 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/vendorName"
                         android:textSize="20sp"
-                        android:textColor="#404040"
-                        android:textStyle="bold"/>
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        />
 
                     <TextView
                         android:text="Market"
@@ -56,7 +60,7 @@
                         android:layout_height="wrap_content"
 
                         android:id="@+id/vendorListLocation"
-                        android:textColor="#000080" />
+                        android:textColor="#000" />
 
                 </LinearLayout>
 
