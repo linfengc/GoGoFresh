@@ -43,6 +43,17 @@ public class Product implements Serializable{
         this.productInfo = productInfo;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "price=" + price +
+                ", categoryTags=" + categoryTags +
+                ", quantity=" + quantity +
+                ", name='" + name + '\'' +
+                ", productInfo='" + productInfo + '\'' +
+                '}';
+    }
+
     public double getPrice() {
         return price;
     }
@@ -75,13 +86,4 @@ public class Product implements Serializable{
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "price=" + price +
-                ", categoryTags=" + categoryTags +
-                ", quantity=" + quantity +
-                ", name='" + name + '\'' +
-                '}';
-    }
 }

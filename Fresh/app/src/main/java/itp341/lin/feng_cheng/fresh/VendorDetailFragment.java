@@ -47,6 +47,7 @@ public class VendorDetailFragment extends Fragment {
         VendorDetailFragment f = new VendorDetailFragment();
         Bundle args = new Bundle();
         args.putInt(VendorDetailFragment.ARGS_POSITION, position);
+
         f.setArguments(args);
 
         return f;
@@ -69,7 +70,7 @@ public class VendorDetailFragment extends Fragment {
         int position = getArguments().getInt(ARGS_POSITION);
         ArrayList<Vendor> vendors = VendorSingleton.get(getActivity()).getVendorsList();
         products = VendorSingleton.get(getActivity()).getProductList(vendors.get(position).getUsername());
-
+        vendorName = VendorSingleton.get(getActivity()).getVendorsList().get(position).getUsername();
         productListAdapter = new ProductListAdapter(products, this);
 
         list.setAdapter(productListAdapter);
@@ -113,7 +114,9 @@ public class VendorDetailFragment extends Fragment {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent i = new Intent(getActivity(), ProductPurchaseActivity.class);
+                    System.out.println("pasing this product to purchaseAct: " + p);
                     i.putExtra(ProductPurchaseActivity.PRODUCT_TAG, p);
+                    i.putExtra("Key", vendorName);
                     i.putExtra(ProductPurchaseActivity.IMG_TAG, frontEndTestID(p.getName()));
                     startActivityForResult(i, 0);
                 }
