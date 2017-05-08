@@ -98,7 +98,7 @@ public class VendorDetailFragment extends Fragment {
                 convertView = getActivity().getLayoutInflater()
                         .inflate(R.layout.order_list_item, null);
             }
-            Log.d("int vendorDetail ", "Position is " + position);
+            System.out.println("*****************int vendorDetail Position is " + position);
             final Product p = mProducts.get(position);
             Log.d("Product to string " , p.toString());
             TextView productName = (TextView) convertView.findViewById(R.id.orderListProductName);

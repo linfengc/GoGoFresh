@@ -129,6 +129,7 @@ public class ProductPurchaseActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // get vendor
                 retrieveVendor();
+                finish();
             }
         });
 
