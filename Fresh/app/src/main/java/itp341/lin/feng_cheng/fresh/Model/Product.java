@@ -13,14 +13,34 @@ public class Product implements Serializable{
     private int quantity;
     private String name;
 
+    private String productInfo;
 
+    public String getProductInfo() {
+        return productInfo;
+    }
 
-    public Product(double price, ArrayList<String> categoryTags, int quantity, String name) {
+    public void setProductInfo(String productInfo) {
+        this.productInfo = productInfo;
+    }
+    public Product(){
+
+    }
+    public Product(int quantity, double price, String name, String productInfo) {
+
+        this.quantity = quantity;
+        this.price = price;
+        this.name = name;
+        this.productInfo = productInfo;
+    }
+
+    public Product(double price, ArrayList<String> categoryTags, int quantity, String name, String productInfo) {
 
         this.price = price;
+        categoryTags = new ArrayList<String>();
         this.categoryTags = categoryTags;
         this.quantity = quantity;
         this.name = name;
+        this.productInfo = productInfo;
     }
 
     public double getPrice() {

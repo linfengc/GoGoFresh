@@ -33,28 +33,44 @@ public class VendorSingleton {
 
     }
 
+    public HashMap<String, ArrayList<Product>> getProductListMap() {
+        return productListMap;
+    }
+
+    public void setProductListMap(HashMap<String, ArrayList<Product>> productListMap) {
+        this.productListMap = productListMap;
+    }
+
+    public static VendorSingleton getmSingleton() {
+        return mSingleton;
+    }
+
+    public static void setmSingleton(VendorSingleton mSingleton) {
+        VendorSingleton.mSingleton = mSingleton;
+    }
+
     public static VendorSingleton get(Context c){
 
         if(mSingleton == null){ //if not yet created, create!
             mSingleton = new VendorSingleton(c.getApplicationContext());
 
             //hard code stuff to check front end
-            Vendor v1 = new Vendor("usera", "password",new Market(new Location()) );
-            Vendor v2 = new Vendor("userb", "password",new Market(new Location()) );
-            Vendor v3 = new Vendor("userc", "password",new Market(new Location()) );
-            Vendor v4 = new Vendor("userd", "password",new Market(new Location()) );
-            Vendor v5 = new Vendor("usere", "password",new Market(new Location()) );
+            Vendor v1 = new Vendor("usera", "password",new Market("Santa Monica") ,"","fruit");
+            Vendor v2 = new Vendor("userb", "password",new Market("West Los Angeles"),"","Brunch/Lunch" );
+            Vendor v3 = new Vendor("userc", "password",new Market("Hollywood") ,"","Drink");
+            Vendor v4 = new Vendor("userd", "password",new Market("Santa Monica"),"", "Bread");
+            Vendor v5 = new Vendor("usere", "password",new Market("West Los Angeles") ,"", "Vegetable");
             v1.setBio("i am vendor1 I sell fruit");
             v2.setBio("i am vendor2 I sell burrito");
             v3.setBio("i am vendor3 I sell drinks");
             v4.setBio("i am vendor4 I sell bread");
             v5.setBio("i am vendor5 I sell fruit");
             ArrayList<Product> sampleProductList = new ArrayList<Product>();
-            Product p1 = new Product(3 , new ArrayList<String>(), 100, "Strawberry");
-            Product p2= new Product(4 , new ArrayList<String>(), 100, "Bread");
-            Product p3 = new Product(9.50 , new ArrayList<String>(), 100, "Breakfast Burrito");
-            Product p4 = new Product(0.99 , new ArrayList<String>(), 100, "Banana");
-            Product p5 = new Product(3.5 , new ArrayList<String>(), 100, "Lemonade");
+            Product p1 = new Product(3 , new ArrayList<String>(), 100, "Strawberry", "fresh Strawberry");
+            Product p2= new Product(4 , new ArrayList<String>(), 100, "Bread", "fresh bread");
+            Product p3 = new Product(9.50 , new ArrayList<String>(), 100, "Breakfast Burrito", "fresh fresh");
+            Product p4 = new Product(0.99 , new ArrayList<String>(), 100, "Banana", "fresh fresh");
+            Product p5 = new Product(3.5 , new ArrayList<String>(), 100, "Lemonade", "fresh fresh" );
             mSingleton.productListMap.put(v1.getUsername(), new ArrayList<Product>());
             mSingleton.productListMap.put(v2.getUsername(), new ArrayList<Product>());
             mSingleton.productListMap.put(v3.getUsername(), new ArrayList<Product>());

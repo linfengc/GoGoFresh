@@ -1,5 +1,6 @@
 package itp341.lin.feng_cheng.fresh.Model;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +9,7 @@ import java.util.HashMap;
  * Created by fredlin on 4/1/17.
  */
 
-public class Inventory {
+public class Inventory implements Serializable {
     private ArrayList<String> categoryTags;
     private HashMap<String, Product> productMap;
     private ArrayList<Product> productList;

@@ -3,6 +3,7 @@ package itp341.lin.feng_cheng.fresh;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ public class ProductPurchaseActivity extends AppCompatActivity {
     private TextView priceLabel;
     private TextView totalCostLabel;
     private TextView productNameLabel;
+    private Button addCartButton;
     private ImageView img;
     private int quantity;
     private double unitPrice;
@@ -51,6 +53,9 @@ public class ProductPurchaseActivity extends AppCompatActivity {
         quantityLabel = (TextView)findViewById(R.id.orderRequestQuantity);
         totalCostLabel = (TextView) findViewById(R.id.orderRequestTotalCost) ;
         productNameLabel = (TextView) findViewById(R.id.orderRequestProductName);
+        addCartButton = (Button) findViewById(R.id.orderRequestButton);
+
+
 
         productNameLabel.setText(mProduct.getName());
         img = (ImageView) findViewById(R.id.orderRequestImg) ;

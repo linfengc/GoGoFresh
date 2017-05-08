@@ -129,7 +129,7 @@ public class VendorDetailFragment extends Fragment {
             if(s.equalsIgnoreCase("Strawberry")){
                 return R.drawable.p1;
             }
-            else if(s.equalsIgnoreCase("break")){
+            else if(s.equalsIgnoreCase("bread")){
                 return R.drawable.p2;
             }
             else if(s.equalsIgnoreCase("breakfast burrito")){
@@ -137,6 +137,9 @@ public class VendorDetailFragment extends Fragment {
             }
             else if(s.equalsIgnoreCase("Banana")) {
                 return R.drawable.p4;
+            }
+            else if(s.equalsIgnoreCase("Apple")){
+                return  R.drawable.p6;
             }
             else{
                 return R.drawable.p5;

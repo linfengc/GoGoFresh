@@ -2,6 +2,7 @@ package itp341.lin.feng_cheng.fresh;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +13,18 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import itp341.lin.feng_cheng.fresh.Model.Client.User;
 import itp341.lin.feng_cheng.fresh.Model.Client.Vendor;
+import itp341.lin.feng_cheng.fresh.Model.Product;
 import itp341.lin.feng_cheng.fresh.Model.VendorSingleton;
 
 /**
@@ -29,6 +39,8 @@ public class MainListFragment extends Fragment {
     private ListView list;
 
     private ArrayList<Vendor> vendors;
+    private ArrayList<Vendor> listFromFirebase;
+    private DatabaseReference dbVendor;
     //create our adapter
 //    private ArrayAdapter<String> adapter;
     private VendorListAdapter vendorAdapter;
@@ -50,6 +62,8 @@ public class MainListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        listFromFirebase = new ArrayList<Vendor>();
+
     }
 
     @Override
@@ -60,14 +74,51 @@ public class MainListFragment extends Fragment {
         list = (ListView) v.findViewById(R.id.vendorListView);
 
         //Get singleton or create one if haven't created (factory method)
-        vendors = VendorSingleton.get(getActivity()).getVendorsList();
+
+        //add firebase stuff to the exisitng hardcode stuff
+        //combine();
+
         //create my adapter
+
+
+
+
+        vendors = VendorSingleton.get(getActivity()).getVendorsList();
         vendorAdapter = new VendorListAdapter(vendors, this);
         list.setAdapter(vendorAdapter);
+        dbVendor = FirebaseDatabase.getInstance().getReference(FirebaseReferences.VENDORS);
+
+        dbVendor.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                System.out.println("looping thru current vendor");
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    System.out.println("iterate " );
+                    Vendor user = snapshot.getValue(Vendor.class);
+                    System.out.println(user);
+                    vendors.add(user);
+                    HashMap<String, ArrayList<Product>> map = VendorSingleton.get(getActivity()).getProductListMap();
+                    map.put(user.getUsername(), user.getmProducts());
+                    vendorAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         return v;
     }
 
+
+    public void combine(){
+        for(int i = 0 ; i < listFromFirebase.size(); i++){
+            System.out.println("added vendor" + listFromFirebase.get(i)+ "to list: " );
+            vendors.add(listFromFirebase.get(i));
+        }
+    }
 
 
     //inner class aka my customized Movie adpater
@@ -92,7 +143,7 @@ public class MainListFragment extends Fragment {
             TextView vendorName = (TextView) convertView.findViewById(R.id.vendorName);
             vendorName.setText(v.getUsername());
             TextView location = (TextView) convertView.findViewById(R.id.vendorListLocation);
-            location.setText("Santa Monica");
+            location.setText(v.getmMarket().getStrLoc());
             ImageView vendorImg = (ImageView) convertView.findViewById(R.id.vendorListImg);
             vendorImg.setImageResource(frontEndTestID(position));
             TextView bio = (TextView) convertView.findViewById(R.id.vendorListBio);

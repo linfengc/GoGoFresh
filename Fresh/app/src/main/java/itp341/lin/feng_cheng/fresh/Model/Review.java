@@ -1,5 +1,6 @@
 package itp341.lin.feng_cheng.fresh.Model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import itp341.lin.feng_cheng.fresh.Model.Client.User;
@@ -8,7 +9,7 @@ import itp341.lin.feng_cheng.fresh.Model.Client.User;
  * Created by fredlin on 4/2/17.
  */
 
-public class Review {
+public class Review implements Serializable {
     private Timestamp time;
     private String content;
     private User author;

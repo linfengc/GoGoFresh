@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="marketArray">
+        <item>Santa Monica</item>
+        <item>Hollywood</item>
+        <item>West Los Angeles</item>
+
+
+    </string-array>
+
+    <string-array name="cardTypeArray">
+    <item>Visa</item>
+    <item>Master Card</item>
+    <item>American Express</item>
+
+
+    </string-array>
+
+    <string-array name="categoryArray">
+        <item>Fruit</item>
+        <item>Bread</item>
+        <item>Breakfast/Lunch</item>
+        <item>Vegetable</item>
+        <item>Drink</item>
+
+
+    </string-array>
+
+
+
+
+</resources>

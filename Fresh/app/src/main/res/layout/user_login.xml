@@ -8,24 +8,28 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/warningLabel"
+        android:textColor="@color/darkred"
+        android:gravity="center" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
 
-        <TextView
-            android:layout_width="125dp"
-            android:layout_height="wrap_content"
-            android:text="@string/userNameLabel"
-            android:textColor="#000"
-            android:textSize="@dimen/medTextSize"/>
+
 
         <EditText
             android:layout_marginLeft="10dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/userNameField"
+
             />
 
     </LinearLayout>
@@ -37,19 +41,15 @@
         android:orientation="horizontal"
         android:layout_marginTop="20dp">
 
-        <TextView
-            android:layout_width="125dp"
-            android:layout_height="wrap_content"
-            android:text="@string/passWord"
-            android:textColor="#000"
-            android:textSize="@dimen/medTextSize"
-            android:id="@+id/textView" />
+
 
         <EditText
             android:layout_marginLeft="10dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/passwordField"
+
+            android:inputType="textPassword"
             />
 
     </LinearLayout>
